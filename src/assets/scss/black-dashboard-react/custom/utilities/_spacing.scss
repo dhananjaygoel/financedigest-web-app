@@ -2,6 +2,7 @@
 
 .row.row-grid > [class*="col-"] + [class*="col-"] {
     margin-top: 3rem;
+    margin-right: 0;
 }
 
 @include media-breakpoint-up(lg) {
@@ -22,6 +23,9 @@
 
 .row-grid + .row-grid {
     margin-top: 3rem;
+}
+.row {
+    margin-right: 0;
 }
 
 // Negative margins and paddings

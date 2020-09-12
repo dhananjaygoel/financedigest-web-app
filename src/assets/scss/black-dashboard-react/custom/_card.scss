@@ -16,7 +16,7 @@
     }
 
     .card-body{
-      padding: 15px;
+      padding: 2px;
 
       &.table-full-width{
         padding-left: 0;
@@ -40,7 +40,7 @@
       &:not([data-background-color]){
         background-color: transparent;
       }
-      padding: 15px 15px 0;
+      padding: 1px 1px 0;
       border: 0;
       color: rgba($white,0.8);
 

@@ -12,8 +12,12 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
+  FormGroup,
+  Label,
+  Input
 } from "reactstrap";
-
+import Toggle from "../Toggle/Toggle";
+import * as logo from "../../assets/img/logo.jpg";
 const PageHeader = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,18 +25,33 @@ const PageHeader = (props) => {
 
   return (
     <div className="navbar">
-      <Navbar fixed expand="md" className="navbar" style={{float: 'right'}} >
-          <div style={{width: '50%'}}></div>
-          <Nav className="md" navbar right style={{flex: 'end'}}>
-            <NavItem right>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem>
-          </Nav>
+      <Navbar fixed expand="md" className="navbar" style={{ float: "right" }}>
+        <div style={{ width: "90%", display: 'flex' }}>
+          <img src={logo} style={{ width: "40px", height: "40px" }}></img>
+          <FormGroup style={{marginLeft: '3em', width: "60%"}}>
+            <Input
+              type="search"
+              name="search"
+              id="exampleSearch"
+              placeholder="Type to search"
+            />
+          </FormGroup>
+        </div>
+        <Nav className="md" navbar style={{ flex: "end" }}>
+          <NavItem>
+            <NavLink>Feed</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink>Feed</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink>Markets</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink>Login</NavLink>
+          </NavItem>
+        </Nav>
+        <Toggle />
       </Navbar>
     </div>
   );

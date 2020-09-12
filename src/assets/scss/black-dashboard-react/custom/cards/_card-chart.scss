@@ -2,6 +2,8 @@
   overflow: hidden;
   .card-header{
     .card-title{
+      font-size: 1.34em;
+      font-weight: bold;
       i{
         font-size: 16px;
         margin-right: 5px;
@@ -24,7 +26,7 @@
 
     td{
       border-top: none;
-      //border-bottom: 1px solid rgba($white,0.1);
+      border-bottom: 1px solid rgba($white,0.1);
     }
   }
 

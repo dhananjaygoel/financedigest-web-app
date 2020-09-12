@@ -34,6 +34,7 @@
     p{
       color: $opacity-8;
     }
+    background-color: #0c26461e;
   }
 
   .main-panel{
@@ -239,7 +240,7 @@
     > tbody > tr > td,
     > tfoot > tr > td{
         border-color: rgba($black, 0.2);
-        padding: 12px 7px;
+        padding: 4px 4px;
         vertical-align: middle;
     }
 
