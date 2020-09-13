@@ -8220,7 +8220,7 @@ fieldset[disabled]
   border-radius: 0.2857rem;
   padding: 5px 15px; }
   .btn-sm.btn-simple, .btn-group-sm > .btn-simple.btn {
-    padding: 4px 14px; }
+    padding: 10px 14px; }
 
 .btn-wd {
   min-width: 140px; }

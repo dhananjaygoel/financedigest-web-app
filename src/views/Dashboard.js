@@ -336,7 +336,26 @@ const Dashboard = (props) => {
               <CardBody>
                 <div className="table-full-width table-responsive">
                   <Table>
-                    <tbody></tbody>
+                    <thead>
+                      <tr>
+                        <td>Purpose</td>
+                        <td align="right">Meeting date</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {dashboardData.data.activeStock.boardMeetings.map(e => {
+                        return(
+                          <tr>
+                            <td>
+                              {e.purpose}
+                            </td>
+                            <td align="right">
+                              {e.date}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
                   </Table>
                 </div>
               </CardBody>
@@ -348,10 +367,28 @@ const Dashboard = (props) => {
                 <CardTitle tag="h3">Corporate Actions</CardTitle>
                 </CardHeader>
               <CardBody>
-                <Table className="tablesorter" responsive>
-                  <thead className="text-primary"></thead>
-                  <tbody></tbody>
-                </Table>
+              <Table>
+                    <thead>
+                      <tr>
+                        <td>Date</td>
+                        <td align="right">Purpose</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {dashboardData.data.activeStock.boardMeetings.map(e => {
+                        return(
+                          <tr>
+                            <td>
+                              {e.date}
+                            </td>
+                            <td align="right">
+                              {e.purpose}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </Table>
               </CardBody>
             </Card>
           </Col>

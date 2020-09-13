@@ -43,8 +43,18 @@ const initialState = {
       },
     },
     reports: ["2020", "2017", "2016", "2015", "2014"],
-    boardMeetings: [],
-    corporateActions: [],
+    boardMeetings: [
+      {purpose: "Quarterly results", date: "jun 2020"},
+      {purpose: "Quarterly results", date: "jun 2020"},
+      {purpose: "Quarterly results", date: "jun 2020"},
+      {purpose: "Quarterly results", date: "jun 2020"},
+    ],
+    corporateActions: [
+      {purpose: "Financial dividends", date: "jun 2020"},
+      {purpose: "Financial dividends", date: "jun 2020"},
+      {purpose: "Financial dividends", date: "jun 2020"},
+      {purpose: "Financial dividends", date: "jun 2020"},
+    ],
   },
   watchList: [
     {
