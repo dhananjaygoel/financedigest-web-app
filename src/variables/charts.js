@@ -254,7 +254,7 @@ let chartExample3 = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [53, 128, 256, 512, 486, 485]
+          data: [53, 328, 256, 512, 486, 485]
         }
       ]
     };

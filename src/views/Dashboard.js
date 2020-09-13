@@ -40,7 +40,7 @@ const Dashboard = (props) => {
     data: state,
   }));
   const selectedFinancialMonth = dashboardData.data.selectedFinancialMonth;
-  const selectedFinancialYear = dashboardData.data.selectedFinancialYear
+  const selectedFinancialYear = dashboardData.data.selectedFinancialYear;
   console.log(dashboardData);
   return (
     <>
@@ -187,13 +187,141 @@ const Dashboard = (props) => {
                 </div>
               </CardBody>
             </Card>
+            <Card className="card-chart">
+              <CardHeader>
+                <CardTitle tag="h3">Financials</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <div
+                  style={{ display: "flex", justifyContent: "space-around", marginBottom: "0.4em" }}
+                >
+                  {Object.keys(
+                    dashboardData.data.activeStock.financials["2020"]
+                  ).map((key) => {
+                    return (
+                      <span
+                        style={{
+                          borderBottom:
+                            key == dashboardData.data.selectedFinancialMonth
+                              ? "solid 3px #2dce88"
+                              : "none",
+                          width: "25%",
+                          textAlign: "center",
+                          color: "white",
+                        }}
+                      >
+                        {key}
+                      </span>
+                    );
+                  })}
+                </div>
+                <Table className="tablesorter" responsive>
+                  <thead>
+                    <tr>
+                      <td>{dashboardData.data.selectedCurrency}</td>
+                      <td>
+                        {`${dashboardData.data.selectedFinancialMonth} ${dashboardData.data.selectedFinancialYear}`}{" "}
+                      </td>
+                      <td>Y/Y</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Revenue</td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.financials[
+                            selectedFinancialYear
+                          ][selectedFinancialMonth].revenue
+                        }
+                      </td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.yearlyFinancials[
+                            selectedFinancialYear
+                          ].revenue
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Net Income</td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.financials[
+                            selectedFinancialYear
+                          ][selectedFinancialMonth].netIncome
+                        }
+                      </td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.yearlyFinancials[
+                            selectedFinancialYear
+                          ].netIncome
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Diluted EPS</td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.financials[
+                            selectedFinancialYear
+                          ][selectedFinancialMonth].dilutedEPS
+                        }
+                      </td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.yearlyFinancials[
+                            selectedFinancialYear
+                          ].dilutedEPS
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Net Profit Margin</td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.financials[
+                            selectedFinancialYear
+                          ][selectedFinancialMonth].netProfitMargin
+                        }
+                      </td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.yearlyFinancials[
+                            selectedFinancialYear
+                          ].netProfitMargin
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Operating Income</td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.financials[
+                            selectedFinancialYear
+                          ][selectedFinancialMonth].operatingIncome
+                        }
+                      </td>
+                      <td>
+                        {
+                          dashboardData.data.activeStock.yearlyFinancials[
+                            selectedFinancialYear
+                          ].operatingIncome
+                        }
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
           </Col>
           <Col xs="12" lg="4">
             <Row>
               <Col xs="12" lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag='h3'>Statistics</CardTitle>
+                    <CardTitle tag="h3">Statistics</CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -233,21 +361,64 @@ const Dashboard = (props) => {
                   <CardBody>
                     <Table className="tablesorter" responsive>
                       <tbody>
-                        {dashboardData.data.activeStock.peerGroups.map(group => {
-                          return (
-                            <tr>
-                              <td style={{border: 0}}>
-                              <div style={{display: 'flex', justifyContent: "space-between", alignItems: 'center', marginBottom: "0.7em"}}>
-                                <div>
-                                <img src={group.image} style={{height: '4em', width: '4em', borderRadius: '50%', marginRight: "3em"}}></img>
-                                <span>{group.name}</span>
-                                </div>
-                                <span>{group.price}</span>
-                              </div>
-                              </td>
-                            </tr>
-                          )
-                        })}
+                        {dashboardData.data.activeStock.peerGroups.map(
+                          (group) => {
+                            return (
+                              <tr>
+                                <td style={{ border: 0 }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "space-between",
+                                      alignItems: "center",
+                                      marginBottom: "0.7em",
+                                    }}
+                                  >
+                                    <div>
+                                      <img
+                                        src={group.image}
+                                        style={{
+                                          height: "4em",
+                                          width: "4em",
+                                          borderRadius: "50%",
+                                          marginRight: "3em",
+                                        }}
+                                      ></img>
+                                      <span>{group.name}</span>
+                                    </div>
+                                    <span>{group.price}</span>
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </Table>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col lg="12">
+                <Card className="card-chart">
+                  <CardHeader>
+                    <CardTitle tag="h3">Annual Reports</CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <Table className="tablesorter" responsive>
+                      <thead>
+                        <tr></tr>
+                      </thead>
+                      <tbody>
+                        {dashboardData.data.activeStock.reports.map(
+                          (report) => {
+                            return (
+                              <tr>
+                                <td>{report}</td>
+                                <td align="right">download</td>
+                              </tr>
+                            );
+                          }
+                        )}
                       </tbody>
                     </Table>
                   </CardBody>
@@ -256,77 +427,7 @@ const Dashboard = (props) => {
             </Row>
           </Col>
         </Row>
-        <Row>
-          <Col lg="8">
-            <Card className="card-chart">
-              <CardHeader>
-                <CardTitle tag="h3">Financials</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <Table className="tablesorter" responsive>
-                  <thead>
-                    <tr>
-                      <td>{dashboardData.data.selectedCurrency}</td>
-                      <td>{`${dashboardData.data.selectedFinancialMonth} ${dashboardData.data.selectedFinancialYear}`} </td>
-                      <td>Y/Y</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Revenue</td>
-                      <td>{dashboardData.data.activeStock.financials[selectedFinancialYear][selectedFinancialMonth].revenue}</td>
-                      <td>{dashboardData.data.activeStock.yearlyFinancials[selectedFinancialYear].revenue}</td>
-                    </tr>
-                    <tr>
-                      <td>Net Income</td>
-                      <td>{dashboardData.data.activeStock.financials[selectedFinancialYear][selectedFinancialMonth].netIncome}</td>
-                      <td>{dashboardData.data.activeStock.yearlyFinancials[selectedFinancialYear].netIncome}</td>
-                     </tr>
-                    <tr>
-                      <td>Diluted EPS</td>
-                      <td>{dashboardData.data.activeStock.financials[selectedFinancialYear][selectedFinancialMonth].dilutedEPS}</td>
-                      <td>{dashboardData.data.activeStock.yearlyFinancials[selectedFinancialYear].dilutedEPS}</td>
-                    </tr>
-                    <tr>
-                      <td>Net Profit Margin</td>
-                      <td>{dashboardData.data.activeStock.financials[selectedFinancialYear][selectedFinancialMonth].netProfitMargin}</td>
-                      <td>{dashboardData.data.activeStock.yearlyFinancials[selectedFinancialYear].netProfitMargin}</td>
-                    </tr>
-                    <tr>
-                      <td>Operating Income</td>
-                      <td>{dashboardData.data.activeStock.financials[selectedFinancialYear][selectedFinancialMonth].operatingIncome}</td>
-                      <td>{dashboardData.data.activeStock.yearlyFinancials[selectedFinancialYear].operatingIncome}</td>
-                    </tr>
-                  </tbody>
-                </Table>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <CardTitle tag="h3">Annual Reports</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <Table className="tablesorter" responsive>
-                  <thead>
-                    <tr>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {dashboardData.data.activeStock.reports.map(report => {
-                    return(<tr>
-                      <td>{report}</td>
-                      <td align="right">download</td>
-                    </tr>)
-                  })} 
-                  </tbody>
-                </Table>
- 
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+
         <Row>
           <Col lg="6">
             <Card className="card-chart">
@@ -343,17 +444,13 @@ const Dashboard = (props) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {dashboardData.data.activeStock.boardMeetings.map(e => {
-                        return(
+                      {dashboardData.data.activeStock.boardMeetings.map((e) => {
+                        return (
                           <tr>
-                            <td>
-                              {e.purpose}
-                            </td>
-                            <td align="right">
-                              {e.date}
-                            </td>
+                            <td>{e.purpose}</td>
+                            <td align="right">{e.date}</td>
                           </tr>
-                        )
+                        );
                       })}
                     </tbody>
                   </Table>
@@ -365,9 +462,10 @@ const Dashboard = (props) => {
             <Card className="card-chart">
               <CardHeader>
                 <CardTitle tag="h3">Corporate Actions</CardTitle>
-                </CardHeader>
+              </CardHeader>
               <CardBody>
-              <Table>
+                <div className="table-full-width table-responsive">
+                  <Table>
                     <thead>
                       <tr>
                         <td>Date</td>
@@ -375,20 +473,19 @@ const Dashboard = (props) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {dashboardData.data.activeStock.boardMeetings.map(e => {
-                        return(
-                          <tr>
-                            <td>
-                              {e.date}
-                            </td>
-                            <td align="right">
-                              {e.purpose}
-                            </td>
-                          </tr>
-                        )
-                      })}
+                      {dashboardData.data.activeStock.corporateActions.map(
+                        (e) => {
+                          return (
+                            <tr>
+                              <td>{e.date}</td>
+                              <td align="right">{e.purpose}</td>
+                            </tr>
+                          );
+                        }
+                      )}
                     </tbody>
                   </Table>
+                </div>
               </CardBody>
             </Card>
           </Col>
