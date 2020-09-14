@@ -17,9 +17,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hist}>
       <Switch>
-        <Route exact path="/admin/dashboard" render={(props) => <AdminLayout {...props} />} />
-        <Redirect from="/" to="/admin/dashboard" />
-        <Route path="*" render={() => <FourOFour />} />
+        <Route exact path="/" render={(props) => <AdminLayout {...props} />} />
+        <Route path="/404" render={() => <FourOFour />} />
+        <Redirect from="*" to="/404" />
       </Switch>
     </Router>
   </Provider>,

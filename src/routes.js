@@ -1,3 +1,4 @@
+import { FourOFour } from "views/404";
 import Dashboard from "views/Dashboard.js";
 import Icons from "views/Icons.js";
 import Notifications from "views/Notifications.js";
@@ -14,39 +15,13 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "tim-icons icon-atom",
-    component: Icons,
-    layout: "/admin"
+    path: "/",
+    component: Dashboard
   },
   {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "tim-icons icon-bell-55",
-    component: Notifications,
-    layout: "/admin"
-  },
-  {
-    path: "/user-profile",
-    name: "User Profile",
-    icon: "tim-icons icon-single-02",
-    component: UserProfile,
-    layout: "/admin"
-  },
-  {
-    path: "/tables",
-    name: "Table List",
-    icon: "tim-icons icon-puzzle-10",
-    component: TableList,
-    layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "tim-icons icon-align-center",
-    component: Typography,
-    layout: "/admin"
-  },
+    path: "*",
+    name: "404",
+    component: FourOFour
+  }
 ];
 export default routes;
