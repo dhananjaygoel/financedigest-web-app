@@ -1,4 +1,7 @@
 .white-content{
+  > .nav-item {
+    color: $dark-gray;
+  }
 
   background: $light-bg;
 
@@ -191,7 +194,7 @@
           background: hsla(0,0%,87%,.5);
         }
         &.active{
-          color: $white;
+          color: $nav-gray;
 
         }
         li{
@@ -295,7 +298,7 @@
 
    .nav-pills .nav-item .nav-link:not(.active){
      background: darken($light-bg,10%);
-     color: $black-states;
+     color: $nav-gray;
      &:hover{
        background: darken($white,20%);
 
@@ -305,6 +308,9 @@
     span{
       color:#525f7f;
     }
+  }
+  .nav-link{
+    color: $dark-gray;
   }
 }
 
