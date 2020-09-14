@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import classNames from "classnames";
 // react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, useReducer } from "react-redux";
+import { setActiveFinancialMonth } from '../store/dashboard/dashboardActions'
 
 // reactstrap components
 import {
@@ -39,6 +40,7 @@ const Dashboard = (props) => {
   const dashboardData = useSelector((state) => ({
     data: state,
   }));
+  const dispatch = useDispatch();  
   const selectedFinancialMonth = dashboardData.data.selectedFinancialMonth;
   const selectedFinancialYear = dashboardData.data.selectedFinancialYear;
   console.log(dashboardData);
@@ -50,11 +52,14 @@ const Dashboard = (props) => {
             <Card className="card-chart">
               <CardHeader>
                 <Row>
-                  <Col className="text-left" sm="6">
+                  <Col className="text-left" sm="6" style={{display: "flex", flexDirection: 'column'}}>
                     <CardTitle>
                       {dashboardData.data.activeStock.marketName}
                     </CardTitle>
                     <h2>${dashboardData.data.activeStock.price}</h2>
+                    <span style={{fontSize: "0.9em", color: "#525f7f"}}>+${dashboardData.data.activeStock.priceChange} ({dashboardData.data.activeStock.percentageChange}%) Today</span>
+                    <span style={{fontSize: "0.9em", marginBottom: "1.2em", color: "#525f7f"}}>+${dashboardData.data.activeStock.priceChange} ({dashboardData.data.activeStock.percentageChange}%) After hours</span>
+
                   </Col>
                   <Col sm="6">
                     <ButtonGroup
@@ -189,10 +194,11 @@ const Dashboard = (props) => {
             </Card>
             <Card className="card-chart">
               <CardHeader>
-                <CardTitle tag="h3">Financials</CardTitle>
+                <CardTitle tag="h3"><i className="fas fa-chart-bar"></i> Financials</CardTitle>
               </CardHeader>
               <CardBody>
                 <div
+                  className="monthTab"
                   style={{ display: "flex", justifyContent: "space-around", marginBottom: "0.4em" }}
                 >
                   {Object.keys(
@@ -207,8 +213,10 @@ const Dashboard = (props) => {
                               : "none",
                           width: "25%",
                           textAlign: "center",
-                          color: "white",
+                          paddingBottom: "7px",
+                          cursor: "pointer"
                         }}
+                        onClick={() => dispatch(setActiveFinancialMonth(key))}
                       >
                         {key}
                       </span>
@@ -321,7 +329,7 @@ const Dashboard = (props) => {
               <Col xs="12" lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag="h3">Statistics</CardTitle>
+                    <CardTitle tag="h3"><i className="fas fa-chart-area"></i> Statistics</CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -356,7 +364,7 @@ const Dashboard = (props) => {
               <Col xs="12" lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag="h3">Peer Group</CardTitle>
+                    <CardTitle tag="h3"><i className="fas fa-building"></i> Peer Group</CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -401,7 +409,7 @@ const Dashboard = (props) => {
               <Col lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag="h3">Annual Reports</CardTitle>
+                    <CardTitle tag="h3"><i className="fas fa-file"></i> Annual Reports</CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -414,7 +422,7 @@ const Dashboard = (props) => {
                             return (
                               <tr>
                                 <td>{report}</td>
-                                <td align="right">download</td>
+                                <td align="right"><a href="#" className="btn-link"><i className="fas fa-download"></i> download</a></td>
                               </tr>
                             );
                           }
@@ -432,7 +440,7 @@ const Dashboard = (props) => {
           <Col lg="6">
             <Card className="card-chart">
               <CardHeader>
-                <CardTitle tag="h3">Board Meetings</CardTitle>
+                <CardTitle tag="h3"><i className="fas fa-info"></i> Board Meetings</CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="table-full-width table-responsive">
@@ -461,7 +469,7 @@ const Dashboard = (props) => {
           <Col lg="6">
             <Card className="card-chart">
               <CardHeader>
-                <CardTitle tag="h3">Corporate Actions</CardTitle>
+                <CardTitle tag="h3"><i className="fas fa-info"></i> Corporate Actions</CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="table-full-width table-responsive">

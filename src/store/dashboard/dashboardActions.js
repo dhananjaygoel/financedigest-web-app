@@ -5,6 +5,11 @@ export const setActiveStock = (stock) => ({
   payload: stock
 });
 
+export const setActiveFinancialMonth = (month) => ({
+  type: constants.SET_ACTIVE_FINANCIAL_MONTH,
+  payload: month
+})
+
 export const addStockToWatchlist = (stock) => ({
   type: constants.ADD_STOCK_TO_WATCHLIST,
   payload: stock

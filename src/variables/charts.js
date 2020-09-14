@@ -126,13 +126,13 @@ let chartExample1 = {
           label: "My First dataset",
           fill: true,
           backgroundColor: gradientStroke,
-          borderColor: "#1f8ef1",
+          borderColor: "#28a745",
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          pointBackgroundColor: "#1f8ef1",
+          pointBackgroundColor: "#28a745",
           pointBorderColor: "rgba(255,255,255,0)",
-          pointHoverBackgroundColor: "#1f8ef1",
+          pointHoverBackgroundColor: "#28a745",
           pointBorderWidth: 20,
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
@@ -240,7 +240,7 @@ let chartExample3 = {
 
     gradientStroke.addColorStop(1, "rgba(72,72,176,0.1)");
     gradientStroke.addColorStop(0.4, "rgba(72,72,176,0.0)");
-    gradientStroke.addColorStop(0, "rgba(119,52,169,0)"); //purple colors
+    gradientStroke.addColorStop(0, "#28a745"); //purple colors
 
     return {
       labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN"],
@@ -250,7 +250,7 @@ let chartExample3 = {
           fill: true,
           backgroundColor: gradientStroke,
           hoverBackgroundColor: gradientStroke,
-          borderColor: "#d048b6",
+          borderColor: "#28a745",
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,

@@ -39,16 +39,16 @@ const PageHeader = (props) => {
         </div>
         <Nav className="md" navbar style={{ flex: "end" }}>
           <NavItem>
-            <NavLink>Feed</NavLink>
+            <NavLink href="/feed">Feed</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>Feed</NavLink>
+            <NavLink href="/learn">Learn</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>Markets</NavLink>
+            <NavLink href="/markets">Markets</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>Login</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </NavItem>
         </Nav>
         <Toggle />

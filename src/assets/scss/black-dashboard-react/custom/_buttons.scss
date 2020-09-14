@@ -75,7 +75,7 @@
             font-size: 1em;
             top: 50%;
             left: 50%;
-            transform: translate(-12px, -12px);
+            //transform: translate(-12px, -12px);
             line-height: 1.5626rem;
             width: 24px;
         }
@@ -136,6 +136,10 @@
     box-shadow: none;
     padding: $padding-btn-vertical - 1 $padding-round-horizontal - 1;
     background-color: $transparent-bg;
+
+    &:hover{
+      transform: none !important;
+    }
 }
 
 .btn-simple,
@@ -189,8 +193,8 @@
 .btn-group {
   .btn.active {
     box-shadow: 2px 2px 6px rgba(0,0,0,.4);
-    transform: translateY(-1px);
-    -webkit-transform: translateY(-1px);
+    // transform: translateY(-1px);
+    // -webkit-transform: translateY(-1px);
   }
 }
 
@@ -207,8 +211,8 @@
 
 .btn-group .btn.active {
     box-shadow: 2px 2px 6px rgba(0,0,0,.4);
-    transform: translateY(-1px);
-    -webkit-transform: translateY(-1px);
+    // transform: translateY(-1px);
+    // -webkit-transform: translateY(-1px);
 }
 
 .btn-round{
@@ -233,8 +237,8 @@
 }
 
 .btn-group label.btn.active {
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
+    //transform: translateY(0);
+    //-webkit-transform: translateY(0);
 }
 
 .btn + .btn {

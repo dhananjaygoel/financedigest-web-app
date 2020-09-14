@@ -54,7 +54,7 @@
   }
 
   .btn-neutral.btn-link{
-    color: rgba($black, 0.7);
+    color: rgba($black, 0.9);
   }
 
   //style for inputs
@@ -152,7 +152,7 @@
 
   .btn.btn-link{
     &:hover,&:active, &:focus{
-      color: $dark-gray !important;
+      color: rgba($black, 0.7) !important;
     }
   }
 
@@ -207,6 +207,9 @@
 
     .card{
       box-shadow: none;
+      span: {
+        color: black;
+      }
     }
 
     &.card-plain{
@@ -240,12 +243,12 @@
     > tbody > tr > td,
     > tfoot > tr > td{
         border-color: rgba($black, 0.2);
-        padding: 10px 10px;
+        padding: 12px 12px;
         vertical-align: middle;
     }
 
     > thead > tr > th, button.btn-neutral.btn-link{
-      color: rgba($black, 0.7);
+      color: rgba($black, 0.9);
     }
   }
 
@@ -299,4 +302,10 @@
 
      }
    }
+   .monthTab{
+    span{
+      color:#525f7f;
+    }
+  }
 }
+

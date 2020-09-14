@@ -49,6 +49,16 @@ export default class Toggle extends PureComponent {
   handleClick(event) {
     const checkbox = this.input;
     this.previouslyChecked = checkbox.checked;
+
+      switch (this.state.checked) {
+        case false:
+          document.body.classList.add("white-content");
+          break;
+        default:
+          document.body.classList.remove("white-content");
+          break;
+      }
+
     if (event.target !== checkbox && !this.moved) {
       event.preventDefault();
       checkbox.focus();
@@ -57,6 +67,7 @@ export default class Toggle extends PureComponent {
     }
 
     this.setState({ checked: checkbox.checked });
+    console.log(this.state.checked)
   }
 
   handleTouchStart(event) {

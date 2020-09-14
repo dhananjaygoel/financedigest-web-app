@@ -26,6 +26,9 @@
   .table {
     background-color: $body-bg;
   }
+  tbody > tr:last-child > td {
+    border-bottom: 0;
+  }
 }
 
 

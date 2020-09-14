@@ -72,7 +72,7 @@
   height: calc(100vh - 90px);
   z-index: 1;
   width: 80%;
-  background-color: #0c26465d;
+  //background-color: #0c26465d;
   border-radius: 5px;
   padding: 0.7em;
   background-size: cover;
@@ -107,6 +107,7 @@
   .sidebar-wrapper{
     min-height: 100%;
     max-height: calc(100vh - 705px);
+    padding: 0.4em;
     z-index: 4;
     overflow: auto;
 

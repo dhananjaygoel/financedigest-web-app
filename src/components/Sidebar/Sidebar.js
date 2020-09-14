@@ -111,22 +111,24 @@ const Sidebar = (props) => {
   }
   return (
     <div className="sidebar">
+      <Card className="card-chart" style={{height: '100%'}}>
       <div className="sidebar-wrapper">
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1em'}}>
-        <h1 style={{margin: 0, fontSize: '1.9em'}}>Watch List</h1>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <h1 style={{margin: 0, fontSize: '1.2em', fontWeight: "bold", paddingLeft: "7px"}}><i className="fas fa-folder-plus"></i> Watch List</h1>
         <Button size="sm" style={{backgroundColor: 'white'}}>+</Button>
         </div>
         <Table className="tablesorter" responsive>
           <thead>
             <tr></tr>
           </thead>
-          <tbody>
+          <tbody className="card-chart">
             {dashboardData.data.watchList.map(e => {
               return <WatchListElement element={e} />
             })}
           </tbody>
         </Table>
       </div>
+      </Card>
     </div>
   );
 };

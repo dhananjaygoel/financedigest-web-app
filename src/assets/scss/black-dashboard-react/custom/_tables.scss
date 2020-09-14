@@ -1,7 +1,11 @@
 .table{
   > tbody > tr > td {
     color: rgba(255, 255, 255, 0.7) !important;
-
+    > .monthTab {
+      span {
+        color: white;
+      }
+    }
     .photo {
       height: 30px;
       width: 30px;
@@ -115,7 +119,7 @@
    > tbody > tr > td,
    > tfoot > tr > td{
        border-color: rgba(255, 255, 255, 0.1);
-       padding: 10px 10px;
+       padding: 12px 12px;
        vertical-align: middle;
    }
 
@@ -163,3 +167,5 @@
 #tables .table-responsive{
     margin-bottom: 30px;
 }
+
+

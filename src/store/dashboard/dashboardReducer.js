@@ -415,6 +415,8 @@ export const dashboardData = (state = initialState, action = {}) => {
       return { ...state, activeStock: action.payload };
     case constants.ADD_STOCK_TO_WATCHLIST:
       return { ...state, watchList: [...state.watchList, action.payload] };
+    case constants.SET_ACTIVE_FINANCIAL_MONTH:
+      return { ...state, selectedFinancialMonth: action.payload };
     default:
       return state;
   }
