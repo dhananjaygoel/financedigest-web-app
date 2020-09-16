@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const WatchListElement = (props) => {
+export const PeerGroupElement = (props) => {
   return (
     <tr>
       <td>

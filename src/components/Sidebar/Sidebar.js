@@ -114,7 +114,7 @@ const Sidebar = (props) => {
       <Card className="card-chart" style={{height: '100%'}}>
       <div className="sidebar-wrapper">
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <h1 style={{margin: 0, fontSize: '1.2em', fontWeight: "bold", paddingLeft: "7px"}}><i className="fas fa-folder-plus"></i> Watch List</h1>
+        <h1 style={{margin: 0, fontSize: '1.2em', fontWeight: "bold", paddingLeft: "7px"}}>Watch List</h1>
         <Button size="sm" style={{backgroundColor: 'white'}}>+</Button>
         </div>
         <Table className="tablesorter" responsive>

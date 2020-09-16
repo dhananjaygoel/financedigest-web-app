@@ -4,7 +4,7 @@ import classNames from "classnames";
 // react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
 import { useSelector, useDispatch, useReducer } from "react-redux";
-import { setActiveFinancialMonth } from '../store/dashboard/dashboardActions'
+import { setActiveFinancialMonth } from "../store/dashboard/dashboardActions";
 
 // reactstrap components
 import {
@@ -34,13 +34,15 @@ import {
   chartExample3,
   chartExample4,
 } from "variables/charts.js";
+import { WatchListElement } from "components/WatchListElement";
+import { PeerGroupElement } from "components/PeerGroupElement/PeerGroupElement";
 
 const Dashboard = (props) => {
   const [bigChartData, setBgChartData] = useState("data1");
   const dashboardData = useSelector((state) => ({
     data: state,
   }));
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch();
   const selectedFinancialMonth = dashboardData.data.selectedFinancialMonth;
   const selectedFinancialYear = dashboardData.data.selectedFinancialYear;
   console.log(dashboardData);
@@ -52,14 +54,30 @@ const Dashboard = (props) => {
             <Card className="card-chart">
               <CardHeader>
                 <Row>
-                  <Col className="text-left" sm="6" style={{display: "flex", flexDirection: 'column'}}>
+                  <Col
+                    className="text-left"
+                    sm="6"
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
                     <CardTitle>
                       {dashboardData.data.activeStock.marketName}
                     </CardTitle>
                     <h2>${dashboardData.data.activeStock.price}</h2>
-                    <span style={{fontSize: "0.9em", color: "#525f7f"}}>+${dashboardData.data.activeStock.priceChange} ({dashboardData.data.activeStock.percentageChange}%) Today</span>
-                    <span style={{fontSize: "0.9em", marginBottom: "1.2em", color: "#525f7f"}}>+${dashboardData.data.activeStock.priceChange} ({dashboardData.data.activeStock.percentageChange}%) After hours</span>
-
+                    <span style={{ fontSize: "0.9em", color: "#525f7f" }}>
+                      +${dashboardData.data.activeStock.priceChange} (
+                      {dashboardData.data.activeStock.percentageChange}%) Today
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "0.9em",
+                        marginBottom: "1.2em",
+                        color: "#525f7f",
+                      }}
+                    >
+                      +${dashboardData.data.activeStock.priceChange} (
+                      {dashboardData.data.activeStock.percentageChange}%) After
+                      hours
+                    </span>
                   </Col>
                   <Col sm="6">
                     <ButtonGroup
@@ -194,12 +212,18 @@ const Dashboard = (props) => {
             </Card>
             <Card className="card-chart">
               <CardHeader>
-                <CardTitle tag="h3"><i className="fas fa-chart-bar"></i> Financials</CardTitle>
+                <CardTitle tag="h3">
+                  Financials
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <div
                   className="monthTab"
-                  style={{ display: "flex", justifyContent: "space-around", marginBottom: "0.4em" }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    marginBottom: "0.4em",
+                  }}
                 >
                   {Object.keys(
                     dashboardData.data.activeStock.financials["2020"]
@@ -214,7 +238,7 @@ const Dashboard = (props) => {
                           width: "25%",
                           textAlign: "center",
                           paddingBottom: "7px",
-                          cursor: "pointer"
+                          cursor: "pointer",
                         }}
                         onClick={() => dispatch(setActiveFinancialMonth(key))}
                       >
@@ -323,13 +347,44 @@ const Dashboard = (props) => {
                 </Table>
               </CardBody>
             </Card>
+            <Card className="card-chart">
+              <CardHeader>
+                <CardTitle tag="h3">
+                  Board Meetings
+                </CardTitle>
+              </CardHeader>
+              <CardBody>
+                <div className="table-full-width table-responsive">
+                  <Table>
+                    <thead>
+                      <tr>
+                        <td>Purpose</td>
+                        <td align="right">Meeting date</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {dashboardData.data.activeStock.boardMeetings.map((e) => {
+                        return (
+                          <tr>
+                            <td>{e.purpose}</td>
+                            <td align="right">{e.date}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                </div>
+              </CardBody>
+            </Card>
           </Col>
           <Col xs="12" lg="4">
             <Row>
               <Col xs="12" lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag="h3"><i className="fas fa-chart-area"></i> Statistics</CardTitle>
+                    <CardTitle tag="h3">
+                     Statistics
+                    </CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -364,7 +419,9 @@ const Dashboard = (props) => {
               <Col xs="12" lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag="h3"><i className="fas fa-building"></i> Peer Group</CardTitle>
+                    <CardTitle tag="h3">
+                      Peer Group
+                    </CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -372,32 +429,7 @@ const Dashboard = (props) => {
                         {dashboardData.data.activeStock.peerGroups.map(
                           (group) => {
                             return (
-                              <tr>
-                                <td style={{ border: 0 }}>
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      justifyContent: "space-between",
-                                      alignItems: "center",
-                                      marginBottom: "0.7em",
-                                    }}
-                                  >
-                                    <div>
-                                      <img
-                                        src={group.image}
-                                        style={{
-                                          height: "4em",
-                                          width: "4em",
-                                          borderRadius: "50%",
-                                          marginRight: "3em",
-                                        }}
-                                      ></img>
-                                      <span>{group.name}</span>
-                                    </div>
-                                    <span>{group.price}</span>
-                                  </div>
-                                </td>
-                              </tr>
+                              <PeerGroupElement element={group} />
                             );
                           }
                         )}
@@ -409,7 +441,9 @@ const Dashboard = (props) => {
               <Col lg="12">
                 <Card className="card-chart">
                   <CardHeader>
-                    <CardTitle tag="h3"><i className="fas fa-file"></i> Annual Reports</CardTitle>
+                    <CardTitle tag="h3">
+                      Annual Reports
+                    </CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter" responsive>
@@ -422,7 +456,11 @@ const Dashboard = (props) => {
                             return (
                               <tr>
                                 <td>{report}</td>
-                                <td align="right"><a href="#" className="btn-link"><i className="fas fa-download"></i> download</a></td>
+                                <td align="right">
+                                  <a href="#" className="btn-link">
+                                    <i className="fas fa-download"></i> download
+                                  </a>
+                                </td>
                               </tr>
                             );
                           }
@@ -431,71 +469,39 @@ const Dashboard = (props) => {
                     </Table>
                   </CardBody>
                 </Card>
+                <Card className="card-chart">
+                  <CardHeader>
+                    <CardTitle tag="h3">
+                       Dividends
+                    </CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <div className="table-full-width table-responsive">
+                      <Table>
+                        <thead>
+                          <tr>
+                            <td>Date</td>
+                            <td align="right">Purpose</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {dashboardData.data.activeStock.corporateActions.map(
+                            (e) => {
+                              return (
+                                <tr>
+                                  <td>{e.date}</td>
+                                  <td align="right">{e.purpose}</td>
+                                </tr>
+                              );
+                            }
+                          )}
+                        </tbody>
+                      </Table>
+                    </div>
+                  </CardBody>
+                </Card>
               </Col>
             </Row>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col lg="6">
-            <Card className="card-chart">
-              <CardHeader>
-                <CardTitle tag="h3"><i className="fas fa-info"></i> Board Meetings</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="table-full-width table-responsive">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <td>Purpose</td>
-                        <td align="right">Meeting date</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {dashboardData.data.activeStock.boardMeetings.map((e) => {
-                        return (
-                          <tr>
-                            <td>{e.purpose}</td>
-                            <td align="right">{e.date}</td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </Table>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="6">
-            <Card className="card-chart">
-              <CardHeader>
-                <CardTitle tag="h3"><i className="fas fa-info"></i> Corporate Actions</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="table-full-width table-responsive">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <td>Date</td>
-                        <td align="right">Purpose</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {dashboardData.data.activeStock.corporateActions.map(
-                        (e) => {
-                          return (
-                            <tr>
-                              <td>{e.date}</td>
-                              <td align="right">{e.purpose}</td>
-                            </tr>
-                          );
-                        }
-                      )}
-                    </tbody>
-                  </Table>
-                </div>
-              </CardBody>
-            </Card>
           </Col>
         </Row>
       </div>
