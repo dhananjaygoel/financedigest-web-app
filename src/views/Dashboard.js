@@ -45,7 +45,6 @@ const Dashboard = (props) => {
   const dispatch = useDispatch();
   const selectedFinancialMonth = dashboardData.data.selectedFinancialMonth;
   const selectedFinancialYear = dashboardData.data.selectedFinancialYear;
-  console.log(dashboardData);
   return (
     <>
       <div className="content">
