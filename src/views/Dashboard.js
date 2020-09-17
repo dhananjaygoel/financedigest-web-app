@@ -99,12 +99,10 @@ const Dashboard = (props) => {
                           name="options"
                           type="radio"
                         />
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block d-block d-sm-none">
                           1d
                         </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-single-02" />
-                        </span>
+
                       </Button>
                       <Button
                         color="info"
@@ -117,12 +115,10 @@ const Dashboard = (props) => {
                         onClick={() => setBgChartData("data2")}
                       >
                         <input className="d-none" name="options" type="radio" />
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block d-block d-sm-none">
                           1w
                         </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-gift-2" />
-                        </span>
+
                       </Button>
                       <Button
                         color="info"
@@ -135,12 +131,10 @@ const Dashboard = (props) => {
                         onClick={() => setBgChartData("data3")}
                       >
                         <input className="d-none" name="options" type="radio" />
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block d-block d-sm-none">
                           3m
                         </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
+
                       </Button>
                       <Button
                         color="info"
@@ -153,12 +147,10 @@ const Dashboard = (props) => {
                         onClick={() => setBgChartData("data4")}
                       >
                         <input className="d-none" name="options" type="radio" />
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block d-block d-sm-none">
                           1y
                         </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
+
                       </Button>
                       <Button
                         color="info"
@@ -171,12 +163,10 @@ const Dashboard = (props) => {
                         onClick={() => setBgChartData("data5")}
                       >
                         <input className="d-none" name="options" type="radio" />
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block d-block d-sm-none">
                           3y
                         </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
+ 
                       </Button>
                       <Button
                         color="info"
@@ -189,11 +179,8 @@ const Dashboard = (props) => {
                         onClick={() => setBgChartData("data6")}
                       >
                         <input className="d-none" name="options" type="radio" />
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block d-block d-sm-none">
                           5y
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
                         </span>
                       </Button>
                     </ButtonGroup>

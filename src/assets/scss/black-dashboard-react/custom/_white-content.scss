@@ -1,4 +1,7 @@
 .white-content{
+  .navbar-toggler-bar{
+    background: $black-states;
+  }
   > .nav-item {
     color: $dark-gray;
   }

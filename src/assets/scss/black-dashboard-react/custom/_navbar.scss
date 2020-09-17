@@ -1,5 +1,4 @@
 .navbar {
-  padding: 10px 30px 10px 15px;
   width: 100%;
   z-index: 1050;
 
@@ -296,6 +295,7 @@
 
           &.bar2{
               width: 17px;
+              margin-left: 5px;
               transition: width .2s linear;
           }
       }
@@ -384,6 +384,7 @@
     display: none;
   }
 
+
   .navbar-nav {
     .nav-link {
       &.profile-photo {
@@ -407,7 +408,7 @@
   }
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 780px){
   .navbar[class*='navbar-toggleable-'] .container{
       margin-left: 0;
       margin-right: 0;
@@ -416,6 +417,9 @@
     .navbar-toggle{
       transition: all 1s;
     }
+  }
+  .desktop-nav {
+    display: none;
   }
   .navbar .navbar-wrapper {
     .navbar-toggle.toggled{
